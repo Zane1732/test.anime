@@ -1,0 +1,246 @@
+/* 3D Enhanced Swiper */
+.swiper {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.swiper-slide {
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(0, 212, 255, 0.03) 0%, 
+    transparent 50%, 
+    rgba(139, 92, 246, 0.03) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 3D Enhanced Navigation Buttons */
+.button-prev,
+.button-next {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.15) 0%, 
+    rgba(0, 0, 0, 0.3) 50%, 
+    rgba(0, 0, 0, 0.6) 100%);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.button-prev::before,
+.button-next::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(0, 212, 255, 0.3), 
+    transparent);
+  transition: left 0.5s;
+}
+
+.button-prev:hover::before,
+.button-next:hover::before {
+  left: 100%;
+}
+
+.button-prev:hover,
+.button-next:hover {
+  background: linear-gradient(135deg, 
+    rgba(0, 212, 255, 0.3), 
+    rgba(139, 92, 246, 0.2));
+  transform: scale(1.1) translateY(-2px);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.8),
+    0 6px 16px rgba(0, 212, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.button-prev::after,
+.button-next::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-left: 0;
+  border-bottom: 0;
+  z-index: 2;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.button-prev:hover::after,
+.button-next:hover::after {
+  border-color: rgba(0, 212, 255, 1);
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.8));
+}
+
+.button-prev::after {
+  transform: rotate(-135deg);
+  margin-left: 3px;
+}
+
+.button-next::after {
+  transform: rotate(45deg);
+  margin-right: 3px;
+}
+
+/* 3D Enhanced Pagination */
+.swiper-horizontal > .swiper-pagination-bullets {
+  bottom: 24px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: auto !important;
+  display: flex !important;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.6), 
+    rgba(255, 255, 255, 0.3)) !important;
+  opacity: 1 !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.swiper-pagination-bullet:hover {
+  background: linear-gradient(135deg, 
+    rgba(0, 212, 255, 0.8), 
+    rgba(139, 92, 246, 0.6)) !important;
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+}
+
+.swiper-pagination-bullet-active {
+  background: linear-gradient(135deg, 
+    rgba(0, 212, 255, 1), 
+    rgba(139, 92, 246, 0.8)) !important;
+  width: 32px !important;
+  border-radius: 16px !important;
+  border-color: rgba(0, 212, 255, 0.6);
+  box-shadow: 
+    0 0 20px rgba(0, 212, 255, 0.8),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.swiper-pagination {
+  bottom: 24px !important;
+  z-index: 10;
+}
+
+/* Mobile Responsive Enhancements */
+@media only screen and (max-width: 575px) {
+  .swiper-horizontal > .swiper-pagination-bullets {
+    bottom: 16px !important;
+    gap: 8px;
+    padding: 6px 12px;
+  }
+  
+  .button-prev,
+  .button-next {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+  
+  .swiper-pagination-bullet {
+    width: 8px !important;
+    height: 8px !important;
+  }
+  
+  .swiper-pagination-bullet-active {
+    width: 24px !important;
+    border-radius: 12px !important;
+  }
+  
+  .button-prev::after,
+  .button-next::after {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Spotlight Content Enhancement */
+.spotlight-content {
+  position: relative;
+  z-index: 3;
+  padding: 60px 40px;
+}
+
+.spotlight-title {
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ffffff, #00d4ff, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+.spotlight-description {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  line-height: 1.7;
+}

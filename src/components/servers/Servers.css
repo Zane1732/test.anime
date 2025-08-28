@@ -1,0 +1,118 @@
+/* 3D Enhanced Server Selection */
+.servers {
+  border-bottom: 1px dashed rgba(0, 212, 255, 0.3);
+  padding: 16px 0;
+  transition: all 0.3s ease;
+}
+
+.servers:only-child {
+  border-bottom: none;
+}
+
+.servers:last-child {
+  border-bottom: none;
+}
+
+.servers:hover {
+  border-bottom: 1px dashed rgba(0, 212, 255, 0.6);
+  background: linear-gradient(90deg, 
+    rgba(0, 212, 255, 0.05) 0%, 
+    rgba(139, 92, 246, 0.03) 50%, 
+    rgba(0, 212, 255, 0.05) 100%);
+}
+
+/* Server Item Styling */
+.server-item {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.08) 0%, 
+    rgba(0, 0, 0, 0.2) 50%, 
+    rgba(0, 0, 0, 0.4) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin: 8px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.server-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(0, 212, 255, 0.2), 
+    transparent);
+  transition: left 0.6s;
+}
+
+.server-item:hover::before {
+  left: 100%;
+}
+
+.server-item:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.8),
+    0 4px 16px rgba(0, 212, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.server-item.active {
+  background: linear-gradient(135deg, 
+    rgba(0, 212, 255, 0.2), 
+    rgba(139, 92, 246, 0.15));
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 
+    0 8px 24px rgba(0, 212, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.server-name {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  font-size: 14px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+}
+
+.server-item:hover .server-name {
+  color: #ffffff;
+  text-shadow: 
+    1px 1px 3px rgba(0, 0, 0, 0.9),
+    0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.server-quality {
+  background: linear-gradient(135deg, 
+    rgba(139, 92, 246, 0.3), 
+    rgba(236, 72, 153, 0.2));
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 8px;
+  transition: all 0.3s ease;
+}
+
+.server-quality:hover {
+  background: linear-gradient(135deg, 
+    rgba(139, 92, 246, 0.5), 
+    rgba(236, 72, 153, 0.4));
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
+}

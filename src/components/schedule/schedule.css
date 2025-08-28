@@ -1,0 +1,116 @@
+.next,
+.prev {
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1), 
+    rgba(0, 0, 0, 0.3));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  padding: 8px;
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.next::before,
+.prev::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(0, 212, 255, 0.3), 
+    transparent);
+  transition: left 0.5s;
+}
+
+.next:hover::before,
+.prev:hover::before {
+  left: 100%;
+}
+
+.next:hover,
+.prev:hover {
+  background: linear-gradient(135deg, 
+    rgba(0, 212, 255, 0.2), 
+    rgba(139, 92, 246, 0.15));
+  border-color: rgba(0, 212, 255, 0.4);
+  color: white;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.6),
+    0 4px 12px rgba(0, 212, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.next:active,
+.prev:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Schedule Card Enhancement */
+.schedule-card {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.05) 0%, 
+    rgba(0, 0, 0, 0.1) 50%, 
+    rgba(0, 0, 0, 0.3) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 12px 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.schedule-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 212, 255, 0.3);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.8),
+    0 8px 24px rgba(0, 212, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.schedule-time {
+  background: linear-gradient(135deg, 
+    rgba(0, 212, 255, 0.2), 
+    rgba(139, 92, 246, 0.15));
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  display: inline-block;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.schedule-time:hover {
+  background: linear-gradient(135deg, 
+    rgba(0, 212, 255, 0.4), 
+    rgba(236, 72, 153, 0.3));
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+}
